@@ -1,12 +1,19 @@
 *.class
-
+*.iml
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
 *.jar
-*.war
-*.ear
+
+# Ide files
+.idea/
+
+# denerated files
+node/*
+target/*
+src/main/resources/static/built/*
+src/main/resources/static/node_modules/*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
