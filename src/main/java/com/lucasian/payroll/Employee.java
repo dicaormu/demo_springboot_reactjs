@@ -6,6 +6,8 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 @Entity
 public class Employee {
@@ -21,5 +23,34 @@ public class Employee {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Employee)) return false;
+		Employee employee = (Employee) o;
+		return Objects.equals(id, employee.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }
