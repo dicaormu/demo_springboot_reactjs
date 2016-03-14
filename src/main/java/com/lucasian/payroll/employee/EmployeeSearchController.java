@@ -1,10 +1,9 @@
-package com.lucasian.payroll;
+package com.lucasian.payroll.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
@@ -26,6 +25,7 @@ public class EmployeeSearchController {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(value = { EmptyResultDataAccessException.class, EntityNotFoundException.class })
-    public void handleNotFound() { }
+    @ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
+    public void handleNotFound() {
+    }
 }

@@ -1,15 +1,11 @@
-package com.lucasian.payroll;
+package com.lucasian.payroll.employee;
 
-import com.jayway.restassured.RestAssured;
+import com.lucasian.payroll.ReactAndSpringDataRestApplication;
+import com.lucasian.payroll.employee.Employee;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import static com.jayway.restassured.RestAssured.given;
@@ -18,12 +14,10 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.OK;
 
 //import static org.assertj.core.api.Assertions.assertThat;
-import com.jayway.restassured.*;
-import com.jayway.*;
+
 
 //@WebIntegrationTest
 @WebAppConfiguration
