@@ -16,7 +16,7 @@ import static com.jayway.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.OK;
 
-@WebIntegrationTest
+@WebIntegrationTest(randomPort = true)
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ReactAndSpringDataRestApplication.class)
 public class EmployeeSearchControllerIntegrationTest {
