@@ -8,6 +8,18 @@ You can have some _Springboot 101_ in
 
 # About the example
 
+## Running
+
+    ./mvnw spring-boot:run
+    
+Once, everything is up and running, go to 
+
+    http://localhost:8080/
+
+## Testing
+
+    ./mvnw test
+
 ## Exploring the exposed api
 
 ### Getting data
