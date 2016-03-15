@@ -1,9 +1,6 @@
 package com.lucasian.payroll.employee;
 
 import com.lucasian.payroll.ReactAndSpringDataRestApplication;
-import com.lucasian.payroll.employee.Employee;
-import com.lucasian.payroll.employee.EmployeeRepository;
-import com.lucasian.payroll.employee.EmployeeSearchController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
