@@ -40,9 +40,23 @@ public class EmployeeSearchControllerIntegrationTest {
                         .extract()
                         .path("firstName");
 
-        assertThat(firstNames).hasSize(1);
-        assertThat(firstNames.get(0))
-                .isNotEmpty()
-                .isEqualToIgnoringCase("Frodo");
+        // then
+        assertThat(firstNames).hasSize(2);
+        assertThat(firstNames).contains("Frodo", "Bilbo");
+    }
+
+    @Test
+    public void
+    should_return_empty_when_no_match() {
+        final List<String> lastNames =
+                given().param("lastName", "Aragorn")
+                        .when().get("/employee/_search")
+                        .then().assertThat()
+                        .statusCode(OK.value())
+                        .extract()
+                        .path("lastName");
+
+        // then
+        assertThat(lastNames).hasSize(0);
     }
 }

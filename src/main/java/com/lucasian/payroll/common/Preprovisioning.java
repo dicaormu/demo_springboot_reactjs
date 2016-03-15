@@ -16,10 +16,13 @@ public class Preprovisioning implements CommandLineRunner {
         this.repository = repository;
     }
 
+    /**
+     * @see com.lucasian.payroll.ReactAndSpringDataRestApplication
+     */
     @Override
     public void run(String... strings) throws Exception {
         this.repository.save(
-                new Employee("Frodo", "Baggins", "ring bearer")
+                new Employee("Gandalf", "The gray", "magician without magic")
         );
     }
 }

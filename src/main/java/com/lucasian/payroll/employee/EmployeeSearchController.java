@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
+/**
+ * Note: this is NOT a HATEOAS compliant rest service
+ * For a correct example go to <a href="https://spring.io/guides/gs/rest-hateoas/">official documentation</a>
+ */
 @RequestMapping("/employee")
 @Controller
 public class EmployeeSearchController {
