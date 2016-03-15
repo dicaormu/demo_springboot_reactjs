@@ -26,22 +26,23 @@ Once, everything is up and running, go to
 
 When you ping the root node, you get back a collection of links wrapped up in a http://stateless.co/hal_specification.html
 
-* *_links* is a the collection of links available.
-* *employees* points to an aggregate root for the employee objects defined by the `EmployeeRepository` interface.
-* *profile* is an IANA-standard relation and points to discoverable metadata about the entire service. We'll explore this in a later section.
-
 
     $ curl localhost:8080/api
     {
-      "_links" : {
-        "employees" : {
-          "href" : "http://localhost:8080/api/employees"
-        },
-        "profile" : {
-          "href" : "http://localhost:8080/api/profile"
-        }
-      }
+       "_links" : {
+         "employees" : {
+           "href" : "http://localhost:8080/api/employees"
+         },
+         "profile" : {
+           "href" : "http://localhost:8080/api/profile"
+         }
+       }
     }
+
+Where,
+* *_links* is a the collection of links available.
+* *employees* points to an aggregate root for the employee objects defined by the `EmployeeRepository` interface.
+* *profile* is an IANA-standard relation and points to discoverable metadata about the entire service. We'll explore this in a later section.
 
 
 You can further dig into this service by navigating the *employees* link.
