@@ -49,19 +49,37 @@ public class EmployeeSearchControllerTest {
     public void
     should_return_existing_employees() throws Exception {
         // given
-        final List<Employee> result =
+        final List<Employee> oneEmployee =
                 Collections.singletonList(new Employee("Pedro", "Perez", "sales"));
         // when
-        when(employeeRepository.findByLastName("Perez")).thenReturn(result);
+        when(employeeRepository.findByLastName("Perez"))
+                .thenReturn(oneEmployee);
         // then
         mockMvc.perform(get("/employee/_search")
                 .param("lastName", "Perez")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].firstName", is(result.get(0).getFirstName())))
-                .andExpect(jsonPath("$[0].lastName", is(result.get(0).getLastName())))
-                .andExpect(jsonPath("$[0].description", is(result.get(0).getDescription())))
+                .andExpect(jsonPath("$[0].firstName", is(oneEmployee.get(0).getFirstName())))
+                .andExpect(jsonPath("$[0].lastName", is(oneEmployee.get(0).getLastName())))
+                .andExpect(jsonPath("$[0].description", is(oneEmployee.get(0).getDescription())))
+        ;
+    }
+
+    @Test
+    public void
+    should_return_empty_response_when_no_employees() throws Exception {
+        // given
+        final List<Employee> noEmployees = Collections.emptyList();
+        // when
+        when(employeeRepository.findByLastName("Perez"))
+                .thenReturn(noEmployees);
+        // then
+        mockMvc.perform(get("/employee/_search")
+                .param("lastName", "Perez")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)))
         ;
     }
 }
