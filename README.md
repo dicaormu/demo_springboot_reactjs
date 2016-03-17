@@ -24,7 +24,7 @@ Once, everything is up and running, go to
 
 ### Getting data
 
-When you ping the root node, you get back a collection of links wrapped up in a http://stateless.co/hal_specification.html
+When you ping the root node, you get back a collection of links wrapped up in a [Hal Specification](http://stateless.co/hal_specification.html)
 
 
     $ curl localhost:8080/api
@@ -69,7 +69,7 @@ At this stage, you are viewing the entire collection of employees.
 
 What's included along with the data you pre-loaded earlier is a `_links` attribute with a `self` link. This is the canonical 
 link for that particular employee. What is canonical? It means free of context. For example, the same user could be fetched 
-through a link like /api/orders/1/processor, in which the employee is assocated with processing a particular order. Here, 
+through a link like `/api/orders/1/processor`, in which the employee is assocated with processing a particular order. Here, 
 there is no relationship to other entities.
 
 IMPORTANT: Links are a critical facet of REST. They provide the power to navigate to related items. It makes it possible 
@@ -114,7 +114,7 @@ That's all and good, but you are probably itching to create some new entries.
     }
 
 
-You can also PUT, PATCH, and DELETE as shown in https://spring.io/guides/gs/accessing-data-rest/[this related guide]. 
+You can also PUT, PATCH, and DELETE as shown in [this related guide](https://spring.io/guides/gs/accessing-data-rest/). 
 But let's not dig into that. You have already spent way too much time interacting with this REST service manually. Don't 
 you want to build a slick UI instead?
 
@@ -139,7 +139,7 @@ The key part in this template is the `<div id="react"></div>` component in the m
 
 ##### Loading JavaScript modules
 
-This tutorial won't go into extensive detail on how it uses https://webpack.github.io/[webpack] to load JavaScript modules. But thanks to the *frontend-maven-plugin*, you don't _have_ to install any of the node.js tools to build and run the code.
+This tutorial won't go into extensive detail on how it uses [webpack](https://webpack.github.io/) to load JavaScript modules. But thanks to the *frontend-maven-plugin*, you don't _have_ to install any of the node.js tools to build and run the code.
 
 The following JavaScript modules will be used:
 
@@ -158,8 +158,3 @@ NOTE: Want to see your JavaScript changes automatically? Move into the `src/main
 to put webpack into watch mode. It will regenerate bundle.js as you edit the source. Assuming you've 
 `http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-hotswapping`, 
 *spring-boot-devtools* combined with this should speed up changes.
-
-With all that in place, you can focus on the React bits which are fetched after the DOM is loaded. It's broken down into parts as below:
-
-Since you are using webpack to assemble things, go ahead and fetch the modules you need:
-
