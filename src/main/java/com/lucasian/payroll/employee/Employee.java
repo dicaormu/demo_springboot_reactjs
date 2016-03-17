@@ -28,6 +28,13 @@ public class Employee {
         this.description = description;
     }
 
+    protected Employee(Long id, String firstName, String lastName, String description) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
@@ -55,5 +62,36 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    static class EmployeeBuilder {
+        Long id;
+        private String firstName;
+        private String lastName;
+        private String description;
+
+        public EmployeeBuilder withId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public EmployeeBuilder withFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public EmployeeBuilder withLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public EmployeeBuilder withDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Employee build() {
+            return new Employee(id, firstName, lastName, description);
+        }
     }
 }

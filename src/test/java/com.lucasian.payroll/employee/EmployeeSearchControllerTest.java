@@ -60,8 +60,8 @@ public class EmployeeSearchControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].firstName", is(oneEmployee.get(0).getFirstName())))
-                .andExpect(jsonPath("$[0].lastName", is(oneEmployee.get(0).getLastName())))
+                .andExpect(jsonPath("$[0].firstName", is(oneEmployee.get(0).getFirstName().toUpperCase())))
+                .andExpect(jsonPath("$[0].lastName", is(oneEmployee.get(0).getLastName().toUpperCase())))
                 .andExpect(jsonPath("$[0].description", is(oneEmployee.get(0).getDescription())))
         ;
     }

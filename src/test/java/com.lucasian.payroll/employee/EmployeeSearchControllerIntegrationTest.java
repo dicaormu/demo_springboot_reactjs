@@ -42,7 +42,7 @@ public class EmployeeSearchControllerIntegrationTest {
 
         // then
         assertThat(firstNames).hasSize(2);
-        assertThat(firstNames).contains("Frodo", "Bilbo");
+        assertThat(firstNames).contains("FRODO", "BILBO");
     }
 
     @Test
