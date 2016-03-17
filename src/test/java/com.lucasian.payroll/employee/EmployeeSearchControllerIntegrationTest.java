@@ -32,14 +32,16 @@ public class EmployeeSearchControllerIntegrationTest {
     @Test
     public void
     should_return_content_on_existing_employees() {
+        // given
+        final String aLastName = "Baggins";
+        // when
         final List<String> firstNames =
-                given().param("lastName", "Baggins")
+                given().param("lastName", aLastName)
                         .when().get("/employee/_search")
                         .then().assertThat()
                         .statusCode(OK.value())
                         .extract()
                         .path("firstName");
-
         // then
         assertThat(firstNames).hasSize(2);
         assertThat(firstNames).contains("FRODO", "BILBO");
