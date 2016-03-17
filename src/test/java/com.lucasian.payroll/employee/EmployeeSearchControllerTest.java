@@ -49,20 +49,21 @@ public class EmployeeSearchControllerTest {
     public void
     should_return_existing_employees() throws Exception {
         // given
-        final List<Employee> oneEmployee =
-                Collections.singletonList(new Employee("Pedro", "Perez", "sales"));
+        final Employee employee = new Employee("Pedro", "Perez", "sales");
+        final List<Employee> oneEmployee = Collections.singletonList(employee);
         // when
-        when(employeeRepository.findByLastName("Perez"))
+        when(employeeRepository
+                .findByLastName(employee.getLastName()))
                 .thenReturn(oneEmployee);
         // then
         mockMvc.perform(get("/employee/_search")
-                .param("lastName", "Perez")
+                .param("lastName", employee.getLastName())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].firstName", is(oneEmployee.get(0).getFirstName().toUpperCase())))
-                .andExpect(jsonPath("$[0].lastName", is(oneEmployee.get(0).getLastName().toUpperCase())))
-                .andExpect(jsonPath("$[0].description", is(oneEmployee.get(0).getDescription())))
+                .andExpect(jsonPath("$[0].firstName", is(employee.getFirstName().toUpperCase())))
+                .andExpect(jsonPath("$[0].lastName", is(employee.getLastName().toUpperCase())))
+                .andExpect(jsonPath("$[0].description", is(employee.getDescription())))
         ;
     }
 
