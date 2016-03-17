@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * Note: this is NOT a HATEOAS compliant rest service
- * For a correct example go to <a href="https://spring.io/guides/gs/rest-hateoas/">official documentation</a>
+ * For a better example go to <a href="https://spring.io/guides/gs/rest-hateoas/">official documentation</a>
  */
 @RequestMapping("/employee")
 @Controller
